@@ -19,7 +19,38 @@ h1 {
     margin: 0;
 }
 
+
 /* Grid layout for the dashboard cards */
+html {
+    scroll-behavior: smooth;
+}
+
+.navbar {
+    position: sticky;
+    top: 0;
+    background-color: #2c3e50;
+    padding: 12px;
+    text-align: center;
+    z-index: 1000;
+}
+
+.navbar a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+body {
+    margin: 0;
+    padding-top: 10px;
+}
+
+
 .dashboard {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* 2 columns */
@@ -71,3 +102,4 @@ tr:nth-child(even) {
     width: 60%; /* keeps charts centered and not too wide */
     margin: 40px auto;
 }
+

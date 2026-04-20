@@ -1,0 +1,109 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Smart Crop Analytics</title>
+    <link rel="stylesheet" href="{% static 'crops/style.css' %}">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a href="/">Table</a>
+  <a href="/charts">Charts</a>
+  <a href="/admin" target="_blank">Admin</a>
+</nav>
+
+<!-- HEADER -->
+<header>
+    <h1>🌾 Smart Crop Analytics System</h1>
+    <p>Analyze Canadian agricultural data efficiently</p>
+</header>
+
+<!-- DASHBOARD CARDS -->
+<section class="dashboard">
+    <div class="card">
+        <h2>🌱 Crop Types</h2>
+        <p>Explore different crop categories</p>
+    </div>
+    <div class="card">
+        <h2>📊 Production Data</h2>
+        <p>View production values</p>
+    </div>
+    <div class="card">
+        <h2>📈 Yield Analysis</h2>
+        <p>Compare yield performance</p>
+    </div>
+</section>
+
+<!-- FILTER FORM -->
+<section id="filters">
+    <form method="GET" style="text-align:center; margin: 20px;">
+
+        <!-- SEARCH -->
+        <input 
+            type="text" 
+            name="search" 
+            placeholder="Search crops or region..."
+            value="{{ request.GET.search }}"
+        >
+
+        <!-- YEAR -->
+        <select name="year">
+            <option value="">All Years</option>
+            {% for y in years %}
+                <option value="{{ y }}">{{ y }}</option>
+            {% endfor %}
+        </select>
+
+        <!-- REGION -->
+        <select name="region">
+            <option value="">All Regions</option>
+            {% for r in regions %}
+                <option value="{{ r }}">{{ r }}</option>
+            {% endfor %}
+        </select>
+
+        <!-- SORT -->
+        <select name="sort">
+            <option value="">Sort By</option>
+            <option value="production">Highest Production</option>
+            <option value="yield">Highest Yield</option>
+        </select>
+
+        <button type="submit">Filter</button>
+    </form>
+</section>
+
+<!-- TABLE -->
+<section id="table">
+    <h2 class="table-title">📋 Crop Data Table</h2>
+
+    <table class="data-table">
+        <tr>
+            <th>Crop</th>
+            <th>Production</th>
+            <th>Yield</th>
+            <th>Year</th>
+            <th>Region</th>
+        </tr>
+
+        {% for crop in crops %}
+        <tr>
+            <td>{{ crop.crop }}</td>
+            <td>{{ crop.production }}</td>
+            <td>{{ crop.yield_amount }}</td>
+            <td>{{ crop.year }}</td>
+            <td>{{ crop.region }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="5" style="text-align:center;">No data found</td>
+        </tr>
+        {% endfor %}
+    </table>
+</section>
+
+</body>
+</html>
