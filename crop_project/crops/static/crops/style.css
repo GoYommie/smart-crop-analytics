@@ -1,62 +1,73 @@
+/* Base style for the whole page */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f7f6;
+    background-color: #f4f7f6; /* light background for readability */
     margin: 0;
     padding: 0;
-    text-align: center;
+    text-align: center; /* center most content by default */
 }
 
+/* Styling the top header section */
 header {
-    background-color: #2e7d32;
+    background-color: #2e7d32; 
     color: white;
     padding: 30px 0;
 }
 
+/* Removing default spacing on main title */
 h1 {
     margin: 0;
 }
 
+/* Grid layout for the dashboard cards */
 .dashboard {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 20px;
+    grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    gap: 20px; /* space between cards */
     padding: 40px;
 }
 
+/* Each card section (charts / info blocks) */
 .card {
     background-color: white;
     padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 2px 5px rgba(0,0,0,0.1);
+    border-radius: 10px; /* rounded corners for modern look */
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.1); /* subtle shadow */
 }
 
+/* Card titles styling */
 .card h2 {
-    color: #2e7d32;
+    color: #2e7d32; /* keeping consistent theme color */
 }
 
+/* Table styling for crop data */
 table {
-    border-collapse: collapse;
+    border-collapse: collapse; /* removes double borders */
     margin: 20px auto;
-    width: 80%;
+    width: 80%; /* not full width to keep it neat */
     background-color: white;
 }
 
+/* Table cells */
 th, td {
     padding: 12px;
     text-align: center;
     border: 1px solid #ddd;
 }
 
+/* Table header row */
 th {
     background-color: #2e7d32;
     color: white;
 }
 
+/* Alternate row colors for better readability */
 tr:nth-child(even) {
     background-color: #f2f2f2;
 }
 
+/* Container for charts */
 .chart-container {
-    width: 60%;
+    width: 60%; /* keeps charts centered and not too wide */
     margin: 40px auto;
 }
